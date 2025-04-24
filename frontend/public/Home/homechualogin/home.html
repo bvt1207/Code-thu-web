@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stocument</title>
+  <!-- Link reset css -->
+  <link rel="stylesheet" href="reset.css" />
+  <!-- Link style css -->
+  <link rel="stylesheet" href="stylehome.css" />
+</head>
+<body>
+  <div class="layout">
+     <!-- HEADER -->
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logostu">
+          <img src="img/anh1.jpg" alt="Logo" />
+          <span class="logo-text">S</span>
+        </div>
+        <span class="brand-name">Stocument</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Tài liệu</a>
+      </nav>
+
+      <a href="#" class="login-button">Đăng nhập</a>
+
+      <button class="hamburger" id="hamburger-btn">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </button>
+    
+      <nav class="mobile-menu" id="mobile-menu">
+        <div class="mobile-welcome">
+          <span>Chào mừng bạn đến với </span>
+          <a href="#" class="sto">Stocument</a>
+        </div>
+      
+        <p class="mobile-info">
+          <a href="#" class="highlight">Đăng nhập</a> ngay để có thể tìm được tài liệu mong muốn!
+        </p>
+      
+        <div class="auth-buttons">
+          <a href="#" class="Login-button">Đăng nhập</a>
+          <a href="#" class="Register-button">Đăng ký</a>
+        </div>
+      
+        <hr class="divider" />
+      
+        <div class="mobile-links">
+          <a href="#">Trang chủ</a>
+          <a href="#">Giới thiệu</a>
+          <a href="#">Tài liệu</a>
+        </div>
+      </nav>
+      
+    
+      <!-- OVERLAY LÀM MỜ -->
+      <div class="menu-overlay" id="menu-overlay"></div>
+
+      <script>
+        const hamburger = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+      
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+          overlay.classList.toggle('active');
+        });
+      
+        overlay.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+       
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        });
+        });
+        // Optional: Set "Trang chủ" là active mặc định
+        navLinks[0].classList.add('active');
+
+        const mobileLinks = document.querySelectorAll('.mobile-links a');
+
+        mobileLinks.forEach(link => {
+        link.addEventListener('click', function () {
+        // Bỏ class 'active' khỏi tất cả link
+        mobileLinks.forEach(l => l.classList.remove('active'));
+        // Thêm class 'active' cho link được bấm
+        this.classList.add('active');
+        });
+        });
+        mobileLinks[0].classList.add('active');
+
+        const authButtons = document.querySelectorAll('.auth-buttons a');
+        authButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+        e.preventDefault(); // Ngăn load trang nếu là #
+        authButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        });
+        });
+        authButtons[0].classList.add('active');
+
+      </script>
+    </div>
+  </header>
+
+  <!-- MAIN BODY -->
+  
+  <section class="mainbody">
+    <div class="mainbody-container">
+      <!-- Cột bên trái: Nội dung -->
+      <div class="heroleft">
+        <a class="text-wrapper-6" href="#">Stocument</a>
+        <p class="p">Nền tảng chia sẻ tài liệu học tập miễn phí</p>
+        <p class="text-wrapper-7">
+          Được thành lập vào năm 2025, Stocument là một nền tảng chuyên đi ăn cắp dữ liệu người dùng. Việc sử dụng trang
+          web này sẽ khiến bạn bị bủh vô thời hạn. Với mỗi lượt truy cập vào trang, bạn đã tự nguyện nộp cho trang 1 triệu
+          đồng trong tài khoản mà không hề hay biết.
+        </p>
+        <div class="div-wrapper"><a class="text-wrapper-5" href="#">Khám phá ngay</a></div>
+      </div>
+  
+      <!-- Cột bên phải: Hình ảnh -->
+      <div class="heroright">
+        <div class="image-carousel">
+          <button class="nav prev">&#10094;</button>
+        
+          <div class="image-stack">
+            <img class="img-card" src="img/anh2.jpg" alt="ảnh 2" data-index="0" />
+            <img class="img-card" src="img/anh3.jpg" alt="ảnh 3" data-index="1" />
+            <img class="img-card" src="img/anh4.jpg" alt="ảnh 4" data-index="2" />
+          </div>
+        
+          <button class="nav next">&#10095;</button>
+        </div>
+        
+        <div class="dot-group">
+          <div class="dot" data-index="0"></div>
+          <div class="dot" data-index="1"></div>
+          <div class="dot" data-index="2"></div>
+        </div>
+        
+        
+        
+        
+      </div>
+    </div>
+
+    <script>
+      const images = document.querySelectorAll('.img-card');
+  const dots = document.querySelectorAll('.dot');
+  const prevBtn = document.querySelector('.nav.prev');
+  const nextBtn = document.querySelector('.nav.next');
+
+  let current = 0;
+
+  function updateCarousel(index) {
+    images.forEach((img, i) => {
+      img.classList.toggle('selected', i === index);
+      img.style.zIndex = i === index ? 4 : 1;
+    });
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('selected', i === index);
+    });
+
+    current = index;
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => updateCarousel(i));
+  });
+
+  images.forEach((img, i) => {
+    img.addEventListener('click', () => updateCarousel(i));
+  });
+
+  prevBtn.addEventListener('click', () => {
+    const next = (current - 1 + images.length) % images.length;
+    updateCarousel(next);
+  });
+
+  nextBtn.addEventListener('click', () => {
+    const next = (current + 1) % images.length;
+    updateCarousel(next);
+  });
+
+  // Khởi tạo
+  updateCarousel(0);
+    </script>
+  </section>
+  
+  <!-- FOOTER -->
+  <footer class="footer" >
+    <div class="footer-container">
+      <!-- Logo + giới thiệu -->
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="img/anh1.jpg" alt="Logo">
+          <span>S</span>
+        </div>
+        <p class="footer-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+        </p>
+      </div>
+  
+      <!-- Truy cập nhanh -->
+      <div class="footer-column">
+        <h4>Truy cập nhanh</h4>
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Tài liệu</a>
+      </div>
+  
+      <!-- Liên hệ -->
+      <div class="footer-column">
+        <h4>Liên hệ</h4>
+        <a href="https://fb.com/nguyen.hoang.654462" target="_blank">fb.com/nguyen.hoang.654462</a>
+        <a href="mailto:jumbohoang@gmail.com">jumbohoang@gmail.com</a>
+        <a href="tel:+84946017362">+84 946 017 362</a>
+      </div>
+  
+      <!-- Tùy chỉnh -->
+      <div class="footer-column setting">
+        <h4>Tùy chỉnh</h4>
+        <a class="setting-toggle" href="#">
+          <div class="btntg">
+            <div class="outer-circle"></div>
+            <div class="inner-circle"></div>
+          </div>
+        </a>       
+      </div>
+    </div>
+    <script>
+      document.querySelector('.setting-toggle').addEventListener('click', function() {
+         this.classList.toggle('active');
+      });
+    </script>
+  </footer>
+  </div>
+</body>
+</html>

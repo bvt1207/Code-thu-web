@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Header</title>
+    <!-- link reset css -->
+     <link rel="stylesheet" href="reset.css">
+    <!-- link style css -->
+    <link rel="stylesheet" href="headerstyle.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <a href="#" class="logo">
+        <div class="logostu">
+          <img src="img/anh1.jpg" alt="Logo" />
+          <span class="logo-text">S</span>
+        </div>
+        <span class="brand-name">Stocument</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#">Trang chủ</a>
+        <a href="#">Giới thiệu</a>
+        <a href="#">Tài liệu</a>
+      </nav>
+
+      <a href="#" class="login-button">Đăng nhập</a>
+
+      <button class="hamburger" id="hamburger-btn">
+        <div class="r1"></div>
+        <div class="r2"></div>
+        <div class="r3"></div>
+      </button>
+    
+      <nav class="mobile-menu" id="mobile-menu">
+        <div class="mobile-welcome">
+          <span>Chào mừng bạn đến với </span>
+          <a href="#" class="sto">Stocument</a>
+        </div>
+      
+        <p class="mobile-info">
+          <a href="#" class="highlight">Đăng nhập</a> ngay để có thể tìm được tài liệu mong muốn!
+        </p>
+      
+        <div class="auth-buttons">
+          <a href="#" class="Login-button">Đăng nhập</a>
+          <a href="#" class="Register-button">Đăng ký</a>
+        </div>
+      
+        <hr class="divider" />
+      
+        <div class="mobile-links">
+          <a href="#">Trang chủ</a>
+          <a href="#">Giới thiệu</a>
+          <a href="#">Tài liệu</a>
+        </div>
+      </nav>
+      
+    
+      <!-- OVERLAY LÀM MỜ -->
+      <div class="menu-overlay" id="menu-overlay"></div>
+
+      <script>
+        const hamburger = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const overlay = document.getElementById('menu-overlay');
+      
+        hamburger.addEventListener('click', () => {
+          mobileMenu.classList.toggle('active');
+          overlay.classList.toggle('active');
+        });
+      
+        overlay.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          overlay.classList.remove('active');
+        });
+       
+        const navLinks = document.querySelectorAll('.nav-links a');
+        navLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+        e.preventDefault();
+        navLinks.forEach(l => l.classList.remove('active'));
+        this.classList.add('active');
+        });
+        });
+        // Optional: Set "Trang chủ" là active mặc định
+        navLinks[0].classList.add('active');
+
+        const mobileLinks = document.querySelectorAll('.mobile-links a');
+
+        mobileLinks.forEach(link => {
+        link.addEventListener('click', function () {
+        // Bỏ class 'active' khỏi tất cả link
+        mobileLinks.forEach(l => l.classList.remove('active'));
+        // Thêm class 'active' cho link được bấm
+        this.classList.add('active');
+        });
+        });
+        mobileLinks[0].classList.add('active');
+
+        const authButtons = document.querySelectorAll('.auth-buttons a');
+        authButtons.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+        e.preventDefault(); // Ngăn load trang nếu là #
+        authButtons.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        });
+        });
+        authButtons[0].classList.add('active');
+
+      </script>
+    </div>
+  </header>
+</body>
+</html>

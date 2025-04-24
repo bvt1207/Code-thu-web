@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stocument</title>
+  <!-- Link reset css -->
+  <link rel="stylesheet" href="reset.css" />
+  <!-- Link style css -->
+  <link rel="stylesheet" href="styleheader.css" />
+</head>
+<body>
+      <!-- HEADER -->
+      <header class="header">
+        <div class="header-container">
+          <a href="#" class="logo">
+            <div class="logostu">
+              <img src="img/anh1.jpg" alt="Logo" />
+              <span class="logo-text">S</span>
+            </div>
+            <span class="brand-name">Stocument</span>
+          </a>
+    
+          <nav class="nav-links">
+            <a href="#">Trang chủ</a>
+            <a href="#">Giới thiệu</a>
+            <a href="#">Tài liệu</a>
+          </nav>
+    
+          <div class="overlap-group0">
+            <div class="user-info">
+              <p class="text-wrapper0">Xin chào!</p>
+              <p class="div0">Nguyễn Thị Minh Anh</p>
+            </div>
+            <a href="#"><img class="element" src="img/anh7.jpg" alt="Avatar" /></a>
+          </div>
+          
+    
+          <button class="hamburger" id="hamburger-btn">
+            <div class="r1"></div>
+            <div class="r2"></div>
+            <div class="r3"></div>
+          </button>
+        
+          <nav class="mobile-menu" id="mobile-menu">
+            <div class="mobile-user-info">
+              <a href=""><img class="mobile-avatar" src="img/anh7.jpg" alt="Avatar"></a>
+              <div class="mobile-text">
+                <p class="mobile-welcome">Xin chào!</p>
+                <p class="mobile-name">Nguyễn Thị Minh Anh</p>
+              </div>
+            </div>
+          
+            <hr class="divider" />
+          
+            <div class="mobile-links">
+              <a href="#">Trang chủ</a>
+              <a href="#">Giới thiệu</a>
+              <a href="#">Tài liệu</a>
+            </div>
+          </nav>
+          
+        
+          <!-- OVERLAY LÀM MỜ -->
+          <div class="menu-overlay" id="menu-overlay"></div>
+    
+          <script>
+            const hamburger = document.getElementById('hamburger-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const overlay = document.getElementById('menu-overlay');
+          
+            hamburger.addEventListener('click', () => {
+              mobileMenu.classList.toggle('active');
+              overlay.classList.toggle('active');
+            });
+          
+            overlay.addEventListener('click', () => {
+              mobileMenu.classList.remove('active');
+              overlay.classList.remove('active');
+            });
+           
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+            e.preventDefault();
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            });
+            });
+            // Optional: Set "Trang chủ" là active mặc định
+            navLinks[0].classList.add('active');
+    
+            const mobileLinks = document.querySelectorAll('.mobile-links a');
+    
+            mobileLinks.forEach(link => {
+            link.addEventListener('click', function () {
+            // Bỏ class 'active' khỏi tất cả link
+            mobileLinks.forEach(l => l.classList.remove('active'));
+            // Thêm class 'active' cho link được bấm
+            this.classList.add('active');
+            });
+            });
+            mobileLinks[0].classList.add('active');
+    
+          </script>
+        </div>
+      </header>
+</body>

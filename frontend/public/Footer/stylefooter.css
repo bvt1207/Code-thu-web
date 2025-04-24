@@ -1,0 +1,159 @@
+/* FOOTER */
+.footer {
+    /* position: relative; */
+    width: 100%;
+    background-color: #d9d9d9;
+    padding: 40px 20px;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-logo {
+    position: relative;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo img {
+    width: 35px;
+    height: 43px;
+    object-fit: cover;
+  }
+  
+  .footer-logo span {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .footer-description {
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #1b1c31;
+    line-height: 1.6;
+    max-width: 540px;
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+  .footer-column h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1b1c31;
+  }
+  
+  .footer-column a {
+    display: block;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  
+  .setting-toggle {
+    position: relative;
+    width: 85px;
+    height: 35px;
+    border-radius: 24px;
+    background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255, 141, 213, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .outer-circle {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    top: 3px;
+    left: 3px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  
+  .inner-circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 10px;
+    left: 10px;
+    border-radius: 5.75px;
+    border: 1.25px solid;
+    border-color: #000000;
+  }
+  
+  /* Kích hoạt toggle */
+  .setting-toggle.active .btntg {
+    transform: translateX(45px); /* Di chuyển vòng tròn khi bật */
+  }
+  
+  .setting-toggle.active .inner-circle {
+    background-image: url('img/anhbd.png');
+    background-size: cover;
+    background-position: center;
+    border: none; /* Bỏ viền nếu bạn muốn hình rõ hơn */
+  }
+  
+  .setting-toggle.active {
+    background: linear-gradient(90deg, #880383 0%, #21BFFE 100%);
+  }
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 0 10px;
+    }
+  
+    .footer-column {
+      width: 100%;
+      min-width: unset;
+    }
+  
+    .setting-toggle {
+      width: 60px;
+      height: 28px;
+    }
+  
+    .outer-circle {
+      width: 22px;
+      height: 22px;
+      top: 3px;
+      left: 3px;
+    }
+  
+    .inner-circle {
+      width: 10px;
+      height: 10px;
+      top: 9px;
+      left: 9px;
+    }
+  
+    .setting-toggle.active .btntg {
+      transform: translateX(30px);
+    }
+  }

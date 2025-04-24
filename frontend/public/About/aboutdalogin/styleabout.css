@@ -1,0 +1,870 @@
+/* HEADER */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.header {
+  background-color: #fdfaf5;
+  padding: 20px 30px;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo .logostu{
+   position: relative;
+   margin-right: 5px;
+   img{
+    width: 35px;
+    height: 44px;
+    object-fit: cover;
+   }
+   .logo-text{
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    font-family: "Inter-SemiBold", Helvetica;
+   }
+}
+
+.brand-name {
+  font-size: 24px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1b1c31;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a.active {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255, 141, 213, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  color: transparent; /* fallback */
+}
+/* === PHẦN LOGIN ĐÃ ĐĂNG NHẬP (desktop) === */
+.overlap-group0 {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background-color: #fdfaf5;
+  border-radius: 12px;
+}
+
+.element {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.text-wrapper0 {
+  font-size: 12px;
+  color: #83838C;
+  font-weight: 600;
+  margin: 0;
+  text-align: right;
+}
+
+.div0 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #1b1c31;
+  margin: 0;
+}
+
+/* Gom phần Xin chào và Tên người dùng vào 1 khối */
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* === HAMBURGER MENU === */
+.hamburger {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255,141,213,1) 100%);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 3;
+}
+.hamburger .r1,
+.hamburger .r2,
+.hamburger .r3 {
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  background-color: #fdfaf5;
+  left: 9px;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.hamburger .r1 { top: 10px; }
+.hamburger .r2 { top: 18px; }
+.hamburger .r3 { top: 26px; }
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100vh;
+  background-color: #fff;
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: left 0.4s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobile-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+}
+
+.mobile-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.mobile-text .mobile-welcome {
+  font-size: 18.75px;
+  font-weight: 600;
+  color: #83838C;
+  margin: 0;
+}
+
+.mobile-text .mobile-name {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1b1c31;
+  margin: 0;
+}
+
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0.5;
+  margin: 10px 0;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-links a {
+  font-size: 18.75px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1b1c31;
+  transition: color 0.3s ease;
+}
+
+.mobile-links a:hover {
+  color: #6DD5BE;
+}
+
+.mobile-links a.active {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1));
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* === TOGGLE MENU ACTIVE === */
+.mobile-menu.active {
+  left: 0;
+}
+/* === OVERLAY MỜ NỀN === */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Khi menu active thì overlay cũng hiện */
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mặc định ẩn hamburger ở màn hình lớn */
+.hamburger {
+  display: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .overlap-group0 {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Ẩn các menu hiện có nếu muốn */
+  .text-wrapper, .div, .text-wrapper-2, .rectangle {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255,141,213,1));
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+  }
+
+  .hamburger div {
+    height: 4px;
+    width: 100%;
+    background-color: #fdfaf5;
+    border-radius: 4px;
+  }
+
+  /* Ẩn menu chính khi ở chế độ mobile, chỉ hiện khi active */
+  .header .text-wrapper,
+  .header .div,
+  .header .text-wrapper-2 {
+    display: none;
+  }
+}
+
+  
+  /* Mainbody */
+   
+
+   /* Wrapper section */
+.intro-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Background image */
+  .background-img {
+    width: 100%;
+    height: 440px;
+    object-fit: cover;
+    display: block;
+  }
+  
+  /* Overlay content container */
+  .intro-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* align left */
+    padding-left: 114px;
+    padding-right: 20px;
+  }
+  
+  /* Card content */
+  .intro-card {
+    background-color: #fdfaf5;
+    border-radius: 24px;
+    padding: 40px;
+    max-width: 580px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+  }
+  
+  /* Gradient title */
+  .intro-title {
+    font-size: 48px;
+    font-weight: 700;
+    background: linear-gradient(
+      90deg,
+      rgba(109, 213, 190, 1) 0%,
+      rgba(255, 141, 213, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 0 16px 0;
+  }
+  
+  /* Paragraph text */
+  .intro-text {
+    font-size: 18px;
+    color: #1b1c31;
+    font-family: "Inter-Regular", Helvetica;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .stats-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "Inter-Bold", Helvetica;
+    background: linear-gradient(
+        90deg,
+        rgba(172, 218, 255, 1) 0%,
+        rgba(242, 219, 188, 1) 100%
+      );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+  }
+  
+
+  
+  .stat-label {
+    font-size: 18px;
+    font-family: "Inter-Regular", Helvetica;
+    color: #1b1c31;
+    margin-top: 8px;
+  }
+  
+/* --- Phần chính --- */
+.contentbox {
+    background-color: #fdfaf5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+  }
+  
+  /* --- Intro section --- */
+  .intro {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .text-wrapper-25 {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "Inter-Bold", Helvetica;
+    background: linear-gradient(90deg, rgba(176, 218, 255, 1), rgba(109, 213, 190, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+  }
+  
+  .text-wrapper-27 {
+    font-size: 18px;
+    font-family: "Inter-Regular", Helvetica;
+    color: #1b1c31;
+  }
+  
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
+    background-color: #fdfaf5;
+  }
+  
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .image-card {
+    flex: 0 0 33.3333%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  .anh {
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ndanh {
+    margin-top: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Inter-SemiBold", Helvetica;
+    color: #1b1c31;
+  }
+  
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: linear-gradient(
+        270deg,
+        rgba(176, 218, 255, 1) 0%,
+        rgba(242, 219, 188, 1) 100%
+    );
+    border: none;
+    padding: 10px 16px;
+    border-radius: 38px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 24px;
+    z-index: 10;
+    margin: 20px;
+  }
+  
+  .nav.prev {
+    left: -5px;
+  }
+  
+  .nav.next {
+    right: -5px;
+  }
+  
+  .dots {
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+  }
+  
+  .dots button {
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .dots button.active {
+    background: #6cd5be;
+  }
+  
+  
+  /* --- Section heading --- */
+  .text-wrapper-26 {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: "Inter-Bold", Helvetica;
+    background: linear-gradient(90deg, rgba(176, 218, 255, 1), rgba(109, 213, 190, 1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  /* --- Feedback Cards --- */
+  .feedback-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .feedback-card {
+    background-color: #f4f2ee;
+    border-radius: 24px;
+    box-shadow: 0px 2px 4px #00000020;
+    padding: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 16px;
+    max-width: 550px;
+    width: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .feedback-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .element {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .feedback-text {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .link{
+    text-decoration: none;
+  }
+
+  .text-wrapper-30 {
+    font-size: 19px;
+    font-weight: 600;
+    color: #1b1c31;
+  }
+  
+  .text-wrapper-29 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6cd5be;
+  }
+  
+  .text-wrapper-31 {
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 300;
+    color: #1b1c31;
+    line-height: 1.5;
+  }
+
+  /* --- CTA Button --- */
+.overlap1 {
+    margin-top: 32px;
+    padding: 12px 24px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    background:
+      linear-gradient(#fdfaf5, #fdfaf5) padding-box,
+      linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1)) border-box;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .overlap1:hover {
+    transform: translateY(-2px) scale(1.03);
+  }
+  
+  .text-wrapper-28 {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+
+/* Responsive mainbody */
+  @media (max-width: 768px) {
+    .intro-content {
+      justify-content: center;
+      padding: 0 16px;
+    }
+  
+    .intro-card {
+      padding: 24px;
+    }
+  
+    .intro-title {
+      font-size: 32px;
+      text-align: center;
+    }
+  
+    .intro-text {
+      font-size: 16px;
+      text-align: justify;
+    }
+    .stats-grid {
+        flex-direction: column;
+        gap: 32px;
+      }
+    
+      .stat-number {
+        font-size: 36px;
+      }
+    
+      .stat-label {
+        font-size: 16px;
+      }
+
+      .text-wrapper-25 {
+        font-size: 36px;
+      }
+    
+      .text-wrapper-26 {
+        font-size: 36px;
+      }
+    
+      .feedback-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    
+      .feedback-text {
+        align-items: center;
+      }
+    
+      .image-card {
+        flex: 0 0 100%; /* mỗi slide chiếm toàn bộ chiều ngang */
+      }
+    
+      .carousel-container {
+        padding: 0 20px;
+      }
+    
+      .anh {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+      }
+    
+      .nav.prev {
+        left: 0;
+      }
+    
+      .nav.next {
+        right: 0;
+      }
+  }
+
+
+  /* FOOTER */
+.footer {
+    /* position: relative; */
+    width: 100%;
+    background-color: #d9d9d9;
+    padding: 40px 20px;
+    font-family: "Inter", sans-serif;
+    box-sizing: border-box;
+  }
+  
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 20px;
+  }
+  
+  .footer-column {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .footer-logo {
+    position: relative;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .footer-logo img {
+    width: 35px;
+    height: 43px;
+    object-fit: cover;
+  }
+  
+  .footer-logo span {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .footer-description {
+    font-family: "Inter-Regular", Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #1b1c31;
+    line-height: 1.6;
+    max-width: 540px;
+    text-align: left;
+    margin: 0;
+  }
+  
+  
+  .footer-column h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #1b1c31;
+  }
+  
+  .footer-column a {
+    display: block;
+    font-size: 16px;
+    color: #000;
+    text-decoration: none;
+    margin-bottom: 6px;
+  }
+  
+  .setting-toggle {
+    position: relative;
+    width: 85px;
+    height: 35px;
+    border-radius: 24px;
+    background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255, 141, 213, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .outer-circle {
+    position: absolute;
+    width: 29px;
+    height: 29px;
+    top: 3px;
+    left: 3px;
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    opacity: 0.7;
+  }
+  
+  .inner-circle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    top: 10px;
+    left: 10px;
+    border-radius: 5.75px;
+    border: 1.25px solid;
+    border-color: #000000;
+  }
+  
+  /* Kích hoạt toggle */
+  .setting-toggle.active .btntg {
+    transform: translateX(45px); /* Di chuyển vòng tròn khi bật */
+  }
+  
+  .setting-toggle.active .inner-circle {
+    background-image: url('img/anhbd.png');
+    background-size: cover;
+    background-position: center;
+    border: none; /* Bỏ viền nếu bạn muốn hình rõ hơn */
+  }
+  
+  .setting-toggle.active {
+    background: linear-gradient(90deg, #880383 0%, #21BFFE 100%);
+  }
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 30px;
+      padding: 0 10px;
+    }
+  
+    .footer-column {
+      width: 100%;
+      min-width: unset;
+    }
+  
+    .setting-toggle {
+      width: 60px;
+      height: 28px;
+    }
+  
+    .outer-circle {
+      width: 22px;
+      height: 22px;
+      top: 3px;
+      left: 3px;
+    }
+  
+    .inner-circle {
+      width: 10px;
+      height: 10px;
+      top: 9px;
+      left: 9px;
+    }
+  
+    .setting-toggle.active .btntg {
+      transform: translateX(30px);
+    }
+  }

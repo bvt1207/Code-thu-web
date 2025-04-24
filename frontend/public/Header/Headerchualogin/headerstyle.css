@@ -1,0 +1,313 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.header {
+  background-color: #fdfaf5;
+  padding: 20px 30px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo .logostu{
+   position: relative;
+   margin-right: 5px;
+   img{
+    width: 35px;
+    height: 44px;
+    object-fit: cover;
+   }
+   .logo-text{
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    font-family: "Inter-SemiBold", Helvetica;
+   }
+}
+
+.brand-name {
+  font-size: 24px;
+  font-family: "Inter-SemiBold", Helvetica;
+  font-weight: 600;
+  color: #000000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  color: #1b1c31;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a.active {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255, 141, 213, 1) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  color: transparent; /* fallback */
+}
+.login-button {
+  text-decoration: none;
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255,141,213,1) 100%);
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* === HAMBURGER MENU === */
+.hamburger {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1) 0%, rgba(255,141,213,1) 100%);
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 3;
+}
+.hamburger .r1,
+.hamburger .r2,
+.hamburger .r3 {
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  background-color: #fdfaf5;
+  left: 9px;
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+.hamburger .r1 { top: 10px; }
+.hamburger .r2 { top: 18px; }
+.hamburger .r3 { top: 26px; }
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 75%;
+  height: 100vh;
+  background-color: #fff;
+  padding: 60px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 5px 0 15px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: left 0.4s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.mobile-welcome {
+  font-size: 25px;
+  font-weight: 700;
+  color: #1b1c31;
+}
+
+.sto {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-info {
+  font-size: 18.75px;
+  color: #1b1c31;
+  line-height: 1.5;
+}
+
+.highlight {
+  color: #6DD5BE;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.Login-button,
+.Register-button {
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Trạng thái mặc định */
+.Login-button {
+  background: #fdfaf5;
+  color: #1B1C31;
+  border: 1px solid #ccc;
+}
+
+.Register-button {
+  background: #fdfaf5;
+  color: #1B1C31;
+  border: 1px solid #ccc;
+}
+
+/* Khi active thì áp gradient */
+.Login-button.active,
+.Register-button.active {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1));
+  color: white;
+  border: none;
+}
+
+
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  opacity: 0.5;
+  margin: 10px 0;
+}
+
+.mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-links a {
+  font-size: 18.75px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #1b1c31;
+  transition: color 0.3s ease;
+}
+
+.mobile-links a:hover {
+  color: #6DD5BE;
+}
+
+.mobile-links a.active {
+  background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255, 141, 213, 1));
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+}
+
+/* === TOGGLE MENU ACTIVE === */
+.mobile-menu.active {
+  left: 0;
+}
+/* === OVERLAY MỜ NỀN === */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Khi menu active thì overlay cũng hiện */
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Mặc định ẩn hamburger ở màn hình lớn */
+.hamburger {
+  display: none;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .login-button {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Ẩn các menu hiện có nếu muốn */
+  .text-wrapper, .div, .text-wrapper-2, .rectangle {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(90deg, rgba(109, 213, 190, 1), rgba(255,141,213,1));
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 3;
+  }
+
+  .hamburger div {
+    height: 4px;
+    width: 100%;
+    background-color: #fdfaf5;
+    border-radius: 4px;
+  }
+
+  /* Ẩn menu chính khi ở chế độ mobile, chỉ hiện khi active */
+  .header .text-wrapper,
+  .header .div,
+  .header .text-wrapper-2 {
+    display: none;
+  }
+}
